@@ -3,10 +3,10 @@ const path = require("path");
 
 require("dotenv").config();
 const Filme = require("./model/filmes");
-const db = require("./model/database/index");
-const bodyParser = require("body-parser");
 
-const port = process.env.PORT || 3000;
+const db = require('./model/database');
+
+const bodyParser = require("body-parser");
 
 module.exports = () => {
   const app = express();
@@ -20,25 +20,30 @@ module.exports = () => {
   app.use(bodyParser.urlencoded({ extended: true }));
 
   app.get("/", async (req, res) => {
-    const filmes = await Filme.findAll();
-    console.log(filmes);
-    console.log(typeof filmes);
+
+    //  const filmes = await Filme.findAll();
+    //  console.log(filmes);
+    //  console.log(typeof filmes);
     res.render("index", {
-      filmes,
+      //filmes,
+
     });
+  });
+
+  app.get("/signup", (req, res) => {
+    res.render("signUp");
   });
 
   app.get("/cadastro", (req, res) => {
     res.render("cadastro");
   });
 
-  app.get("/detalhes", (req, res) => {
-    res.render("detalhes");
+
+  app.get("/login",(req, res)=>{
+    res.render("login");
   });
 
-  app.get("/lista", (req, res) => {
-    res.render("lista");
-  });
+
 
   app.get("/filmes/:id", async (req, res) => {
     const filme = await Filme.findByPk(req.params.id);
@@ -71,7 +76,7 @@ module.exports = () => {
       const filme = await Filme.create({
         nome,
         descricao,
-        imagem,
+        imagem, 
       });
 
       res.render("criar", {
