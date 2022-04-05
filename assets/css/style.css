@@ -75,6 +75,16 @@ main{
   padding: 4vh;
 }
 
+.card:hover{
+  transition: 0.5s;
+  transform: scale(1.07);
+}
+
+.card a{
+  display: flex;
+  justify-content: center;
+}
+
 #img{
   width: 70%;
   margin: 2vh;
@@ -229,7 +239,8 @@ section#cadastro form{
 
 section#cadastro form label{
   color: rgb(14, 63, 169);
-  font-weight: 500;
+  font-size: 2.5vh;
+  font-weight: 600;
 }
 
 section#cadastro form input{
@@ -272,9 +283,10 @@ footer p {
   padding-bottom: 5vh;
   align-items: center;
   padding-top: 5vh;
-  background-color: rgb(0, 0, 0);
-  color: white;
+  background-color: rgb(14, 63, 169);
+  color: rgb(255, 169, 3);
   text-align: center;
+  font-size: 2vh;
 }
 
 /*-----------------------Responsividade--------------------*/
